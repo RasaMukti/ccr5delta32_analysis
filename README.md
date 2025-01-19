@@ -7,9 +7,9 @@ To reproduce the ccr5delta32 analysis, clone this repository and run the script 
 
 ## Analysis
 ```
-Rscript stepadna.R -f data/HAPI_input.csv -a 17402 -o output/out_HAPI.csv -l gl -i 50 -c 50
-Rscript stepadna.R -f data/permissive_input.csv -a 9128 -o output/out_permissive.csv -l gl -i 50 -c 50
-Rscript stepadna.R -f data/strict_input.csv -a 7714 -o output/out_strict.csv -l gl -i 50 -c 50
+Rscript stepadna.R -f data/HAPI_input.csv -a 16128 -o output/out_HAPI.csv -l gl -i 50 -c 50
+Rscript stepadna.R -f data/permissive_input.csv -a 8540 -o output/out_permissive.csv -l gl -i 50 -c 50
+Rscript stepadna.R -f data/strict_input.csv -a 6748 -o output/out_strict.csv -l gl -i 50 -c 50
 ```
 
 The first, second and third line runs the analysis for results using HAPI classification, permissive and strict genotype calls, respectively. The code runs using 50 cores (specified by -c option).
