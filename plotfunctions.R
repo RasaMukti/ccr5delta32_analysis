@@ -345,15 +345,15 @@ savePDF <- function(col_num, image_num, outName, diffusion_mat, timeP, Nx, Ny, l
   colorBreaks = c(1e-5, 3^(seq(-6, log10(1), length.out = col_num)))
   
   if (datatype == "HAPI"){
-    plotTimes <- c(1, 43, 52, 57, 61)
+    plotTimes <- c(1, 43, 52, 56, 57)
     fun_color_range <- colorRampPalette(c("#ffffb2","#619cff","#033488"))
     point_fill = "#619CFF"
   } else if (datatype == "permissive"){
-    plotTimes <- c(5, 14, 23, 28, 32)
+    plotTimes <- c(5, 14, 23, 28, 30)
     fun_color_range <- colorRampPalette(c("#ffffb2","#fa9079","#de4514","#920909"))
     point_fill = "#F8766D"
   } else if (datatype == "strict"){
-    plotTimes <- c(1,10,19,24,28)
+    plotTimes <- c(1,10,19,22,24)
     fun_color_range <- colorRampPalette(c("#ffffb2","#1ed053","#026921"))
     point_fill = "#00BA38"
   }
@@ -368,13 +368,13 @@ savePDF <- function(col_num, image_num, outName, diffusion_mat, timeP, Nx, Ny, l
   displayed_periods <- c(1:length(time_periods))[plotTimes]
   
   if (datatype == "HAPI"){
-    time_labels <- c(17402, round(time_periods[displayed_periods])[2:length(time_periods)]*290)
+    time_labels <- c(16128, round(time_periods[displayed_periods])[2:length(time_periods)]*290)
 
   } else if (datatype == "permissive"){
-    time_labels <- c(9128, round(time_periods[displayed_periods])[2:length(time_periods)]*290)
+    time_labels <- c(8540, round(time_periods[displayed_periods])[2:length(time_periods)]*290)
 
   } else if (datatype == "strict"){
-    time_labels <- c(7714, round(time_periods[displayed_periods])[2:length(time_periods)]*290)
+    time_labels <- c(6748, round(time_periods[displayed_periods])[2:length(time_periods)]*290)
   }
 
   plot_list = list()
