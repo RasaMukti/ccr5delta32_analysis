@@ -31,7 +31,7 @@ datatype <- c("HAPI", "permissive", "strict")
 
 ccr5_data <- read.csv(paste0("data/",datatype[dn],"_input.csv"))
 
-ccr5_data <- ccr5_data[(ccr5_data["longitude"] <= 80 &
+ccr5_data <- ccr5_data[(ccr5_data["longitude"] <= 120 &
                       ccr5_data["longitude"] >= -10 &
                       ccr5_data["latitude"] <= 75 &
                       ccr5_data["latitude"] >= 30),]
@@ -48,7 +48,7 @@ opt=list(file=paste0("output/out_",datatype[dn],".csv"), nimage=7, out=paste0("f
 la1 <- 30
 la2 <- 75
 lo1 <- -10
-lo2 <- 80
+lo2 <- 120
 
 # Create topographical data grid
 topo  <- createTopo(la1, la2, lo1, lo2)
