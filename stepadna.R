@@ -60,7 +60,7 @@ options(scipen = 999)
 la1 <- 30
 la2 <- 75
 lo1 <- -10
-lo2 <- 80
+lo2 <- 120
 
 # Create topographical data grid
 topo  <- createTopo(la1, la2, lo1, lo2)
