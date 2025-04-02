@@ -19,7 +19,8 @@ conda create -n ccr5delta32_analysis \
   r-rgeos=0.6_4 \
   r-raster=3.6_30 \
   r-codetools=0.2_20 \
-  r-geomap=2.5_11
+  r-geomap=2.5_11 \
+  r-pak==0.8.0.1
 ```
 Then activate the conda environment
 ```
