@@ -6,11 +6,6 @@ The file data/November_S1.csv is obtained from [2] and ETOPO5.rds from [3].
 To reproduce the ccr5delta32 analysis, clone this repository and run the script stepadna.R using R:
 
 # Reproducing the results
-Start of by cloning the repository:
-```
-git clone https://github.com/RasaMukti/ccr5delta32_analysis
-```
-
 ## Environment
 To create a correct environment for the analysis create a conda environment with the correct versions of the packages by running the following:
 ```
@@ -49,7 +44,15 @@ pkgs <- c(
 pak::pkg_install(pkgs)
 ```
 ## Analysis
-To rerun the analysis run the stepadna.R script.
+
+To rerun the analysis start of by cloning the repository and cd'ing into it:
+```
+git clone https://github.com/RasaMukti/ccr5delta32_analysis
+cd ccr5delta32_analysis
+```
+The `stepadna.R` script runs the main part of the analysis.
+Make sure to run the scripts from the `ccr5delta32_analysis` directory
+
 The `-f` flag take in a CSV file of the following format  
 ```
 "","Sample","genotype","latitude","longitude","age"
@@ -72,7 +75,7 @@ Rscript stepadna.R -f data/permissive_input.csv -a 8540 -o output/out_permissive
 # HAPI output file with strict filter
 Rscript stepadna.R -f data/strict_input.csv -a 6748 -o output/out_strict.csv -l gl -i 50 -c 50
 ```
-## Results
+## Plots
 In order to generate the allele frequency trajectory maps of the results generated in the previous step run the scirpt stepplots.R:
 
 ```
