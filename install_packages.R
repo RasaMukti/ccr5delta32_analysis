@@ -13,7 +13,7 @@ pkgs <- c(
   "cowplot@1.1.3",
   "animation@2.7",
   "RColorBrewer@1.1.3",
-  "fields@16.3",
+  "fields@16.3"
 )
 
 # Install with version control
