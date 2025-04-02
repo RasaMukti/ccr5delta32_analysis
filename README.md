@@ -1,4 +1,4 @@
-# Ccr5delta32_analysis
+# Spatiotemporal allele frequency dynamics of the CCR5delta32 deletion
 This repository contains the code to reproduce the results from the section on `Spatiotemporal allele frequency dynamics` from the paper:
 `Tracing the evolutionary path of the CCR5delta32 deletion via ancient and modern genomes`
 The scripts are based on the method described in reference [1].
