@@ -4,8 +4,8 @@ This repository contains the code to reproduce the results from the section on `
 The scripts are based on the method described in reference [1].
 The file data/November_S1.csv is obtained from reference [2] and ETOPO5.rds from reference [3].
 
-# Reproducing the results
-## Environment
+## Reproducing the results
+### Environment
 To reproduce the results start of by creating a conda environment with the correct versions of the packages by running the following:
 ```
 conda create -n ccr5delta32_analysis \
@@ -53,7 +53,7 @@ pak::pkg_install(pkgs)
 ```
 Make sure to install the packages inside the correct environment
 
-## Analysis
+### Analysis
 
 To rerun the analysis start of by cloning the repository and cd into it:
 ```
@@ -85,9 +85,8 @@ Rscript stepadna.R -f data/permissive_input.csv -a 8540 -o output/out_permissive
 # HAPI output file with strict filter
 Rscript stepadna.R -f data/strict_input.csv -a 6748 -o output/out_strict.csv -l gl -i 50 -c 50
 ```
-## Plots
+### Plots
 In order to generate the allele frequency trajectory maps of the results generated in the previous step run the script stepplots.R:
-
 ```
 Rscript stepplots.R
 ```
