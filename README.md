@@ -1,6 +1,10 @@
 # Spatiotemporal allele frequency dynamics of the CCR5delta32 deletion
 This repository contains the code to reproduce the results from the section on `Spatiotemporal allele frequency dynamics` from the paper:
-`Tracing the evolutionary path of the CCR5delta32 deletion via ancient and modern genomes`
+```
+Tracing the evolutionary path of the CCR5delta32 deletion via ancient and modern genomes
+Kirstine Ravn, Leonardo Cobuccio, Rasa Audange Muktupavela, Jonas Meisner, Michael Eriksen Benros, Thorfinn Sand Korneliussen, Martin Sikora, Eske Willerslev, Morten E. Allentoft, Evan K. Irving-Pease, Fernando Racimo, Simon Rasmussen
+medRxiv 2023.06.15.23290026; doi: https://doi.org/10.1101/2023.06.15.23290026
+```
 The scripts are based on the method described in reference [1].
 The file data/November_S1.csv is obtained from reference [2] and ETOPO5.rds from reference [3].
 
@@ -51,7 +55,7 @@ pkgs <- c(
 # Install packages
 pak::pkg_install(pkgs)
 ```
-Make sure to install the packages inside the correct environment
+Make sure to install the packages inside the correct conda environment
 
 ### Analysis
 
@@ -61,7 +65,7 @@ git clone https://github.com/RasaMukti/ccr5delta32_analysis
 cd ccr5delta32_analysis
 ```
 The `stepadna.R` script runs the main part of the analysis.
-Make sure to run the scripts from the `ccr5delta32_analysis` directory
+Make sure to run the scripts from the `ccr5delta32_analysis` directory.
 
 The `-f` flag take in a CSV file of the following format  
 ```
@@ -70,10 +74,10 @@ The `-f` flag take in a CSV file of the following format
 "2","BOT15",0,53.17,"67.67",5134.5
 "3","BOT2016",0,53.17,"67.67",5450
 ```
-The `-o` flag determines the outfile  
+The `-o` flag determines the output file.  
 The `-c` flag determines the number of cores to use  
-The `-a` flag the estimated age of the allele  
-the `-l` flag determines whether to use pseudohaploid genotypes (ph) or genotype likelihoods (gl)"  
+The `-a` flag determines the estimated age of the allele  
+the `-l` flag determines whether to use pseudohaploid genotypes (ph) or genotype likelihoods (gl)
 
 The input files (passed to the program by the `-f` flag) used in our analysis can be found in the `/data` directory  
 To rerun our analysis run the following:
