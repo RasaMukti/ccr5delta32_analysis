@@ -1,13 +1,12 @@
 # Ccr5delta32_analysis
-
-The scripts are based on the method described in [1].
-The file data/November_S1.csv is obtained from [2] and ETOPO5.rds from [3].
-
-To reproduce the ccr5delta32 analysis, clone this repository and run the script stepadna.R using R:
+This repository contains the code to reproduce the results from the section on `Spatiotemporal allele frequency dynamics` from the paper:
+`Tracing the evolutionary path of the CCR5delta32 deletion via ancient and modern genomes`
+The scripts are based on the method described in reference [1].
+The file data/November_S1.csv is obtained from reference [2] and ETOPO5.rds from reference [3].
 
 # Reproducing the results
 ## Environment
-To create a correct environment for the analysis create a conda environment with the correct versions of the packages by running the following:
+To reproduce the results start of by creating a conda environment with the correct versions of the packages by running the following:
 ```
 conda create -n ccr5delta32_analysis \
   -c conda-forge -c bioconda -c defaults \
@@ -30,7 +29,7 @@ conda activate ccr5delta32_analysis
 Then install the R packages not available on conda using pak, this can be done by running the following in R:
 ```
 pkgs <- c(
-  "geomapdata@2.0.2", 
+  "geomapdata@2.0.2",
   "ReacTran@1.4.3.1",
   "geosphere@1.5.20",
   "deSolve@1.40",
@@ -38,14 +37,25 @@ pkgs <- c(
   "cowplot@1.1.3",
   "animation@2.7",
   "RColorBrewer@1.1.3",
-  "fields@16.3"
+  "fields@16.3",
+  "optparse@1.7.5",
+  "plsgenomics@1.5-3",
+  "paramtest@0.1.1",
+  "bbmle@1.0.25.1",
+  "mapdata@2.3.1",
+  "mapplots@1.5.2",
+  "rworldmap@1.3.8",
+  "FME@1.1.4",
+  "dplyr@1.3.6.3"
 )
 # Install packages
 pak::pkg_install(pkgs)
 ```
+Make sure to install the packages inside the correct environment
+
 ## Analysis
 
-To rerun the analysis start of by cloning the repository and cd'ing into it:
+To rerun the analysis start of by cloning the repository and cd into it:
 ```
 git clone https://github.com/RasaMukti/ccr5delta32_analysis
 cd ccr5delta32_analysis
@@ -76,7 +86,7 @@ Rscript stepadna.R -f data/permissive_input.csv -a 8540 -o output/out_permissive
 Rscript stepadna.R -f data/strict_input.csv -a 6748 -o output/out_strict.csv -l gl -i 50 -c 50
 ```
 ## Plots
-In order to generate the allele frequency trajectory maps of the results generated in the previous step run the scirpt stepplots.R:
+In order to generate the allele frequency trajectory maps of the results generated in the previous step run the script stepplots.R:
 
 ```
 Rscript stepplots.R
