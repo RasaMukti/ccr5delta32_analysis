@@ -5,6 +5,35 @@ The file data/November_S1.csv is obtained from [2] and ETOPO5.rds from [3].
 
 To reproduce the ccr5delta32 analysis, clone this repository and run the script stepadna.R using R:
 
+# Environment
+Start of by creating a conda environment with the correct versions of the packages:
+```
+conda create -n ccr5delta32_analysis \
+  -c conda-forge -c bioconda -c defaults \
+  R-base=4.4.2 \
+  graphicsmagick=1.3.26 \
+  libgdal=3.10.0 \
+  udunits2=2.2.28 \
+  r-maptools=1.1_8 \
+  r-animation=2.7 \
+  r-rgeos=0.6_4 \
+  r-raster=3.6_30 \
+  r-codetools=0.2_20 \
+  r-geomap=2.5_11
+```
+Then activate the conda environment
+```
+conda activate ccr5delta32_analysis
+```
+And lastly install the R packages not available on conda, inside the environemnt.
+These are: 
+```
+
+```
+
+
+
+
 ## Analysis
 ```
 Rscript stepadna.R -f data/HAPI_input.csv -a 16128 -o output/out_HAPI.csv -l gl -i 50 -c 50
