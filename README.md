@@ -49,14 +49,29 @@ pkgs <- c(
 pak::pkg_install(pkgs)
 ```
 ## Analysis
+To rerun the analysis run the stepadna.R script.
+The `-f` flag take in a CSV file of the following format  
 ```
-Rscript stepadna.R -f data/HAPI_input.csv -a 16128 -o output/out_HAPI.csv -l gl -i 50 -c 50
+"","Sample","genotype","latitude","longitude","age"
+"1","BOT14",0,53.17,"67.67",5263.5
+"2","BOT15",0,53.17,"67.67",5134.5
+"3","BOT2016",0,53.17,"67.67",5450
+```
+The `-o` flag determines the outfile  
+The `-c` flag determines the number of cores to use  
+The `-a` flag the estimated age of the allele  
+the `-l` flag determines whether to use pseudohaploid genotypes (ph) or genotype likelihoods (gl)"  
+
+The input files (passed to the program by the `-f` flag) used in our analysis can be found in the `/data` directory  
+To rerun our analysis run the following:
+```
+# HAPI output files without filter
+Rscript stepadna.R -f data/HAPI_input.csv -a 16128 -o output/out_HAPI.csv -l gl -i 50 -c 50 
+# HAPI output file with permissive filter
 Rscript stepadna.R -f data/permissive_input.csv -a 8540 -o output/out_permissive.csv -l gl -i 50 -c 50
+# HAPI output file with strict filter
 Rscript stepadna.R -f data/strict_input.csv -a 6748 -o output/out_strict.csv -l gl -i 50 -c 50
 ```
-
-The first, second and third line runs the analysis for results using HAPI classification, permissive and strict genotype calls, respectively. The code runs using 50 cores (specified by -c option).
-
 ## Results
 In order to generate the allele frequency trajectory maps of the results generated in the previous step run the scirpt stepplots.R:
 
