@@ -1,12 +1,18 @@
-# ccr5delta32_analysis
+# Ccr5delta32_analysis
 
 The scripts are based on the method described in [1].
 The file data/November_S1.csv is obtained from [2] and ETOPO5.rds from [3].
 
 To reproduce the ccr5delta32 analysis, clone this repository and run the script stepadna.R using R:
 
-# Environment
-Start of by creating a conda environment with the correct versions of the packages:
+# Reproducing the results
+Start of by cloning the repository:
+```
+git clone https://github.com/RasaMukti/ccr5delta32_analysis
+```
+
+## Environment
+To create a correct environment for the analysis create a conda environment with the correct versions of the packages by running the following:
 ```
 conda create -n ccr5delta32_analysis \
   -c conda-forge -c bioconda -c defaults \
@@ -26,15 +32,22 @@ Then activate the conda environment
 ```
 conda activate ccr5delta32_analysis
 ```
-And lastly install the R packages not available on conda, inside the environemnt.
-These are: 
+Then install the R packages not available on conda using pak, this can be done by running the following in R:
 ```
-
+pkgs <- c(
+  "geomapdata@2.0.2", 
+  "ReacTran@1.4.3.1",
+  "geosphere@1.5.20",
+  "deSolve@1.40",
+  "magrittr@2.0.3",
+  "cowplot@1.1.3",
+  "animation@2.7",
+  "RColorBrewer@1.1.3",
+  "fields@16.3"
+)
+# Install packages
+pak::pkg_install(pkgs)
 ```
-
-
-
-
 ## Analysis
 ```
 Rscript stepadna.R -f data/HAPI_input.csv -a 16128 -o output/out_HAPI.csv -l gl -i 50 -c 50
