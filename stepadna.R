@@ -29,16 +29,13 @@ library(RColorBrewer)
 library(geosphere)
 library(fields)
 library(stats4)
-library(GEOmap)
 library(geomapdata)
-library(plsgenomics)
 library(paramtest)
 library(bbmle)
 library(parallel)
 library(maps)
 library(mapdata)
 library(mapplots)
-library(rworldmap)
 library(scales)
 library(FME)
 library(dplyr)
@@ -67,25 +64,24 @@ ts_data$age <- ts_data$age/29
 # Round times and scale by 10
 ts_data$age <- round(ts_data$age/10)
 
+# Load present allele frequencies
 present_ccr5 <- read.csv("data/November_S1.csv", sep=";")
 
-present_ccr5 <- present_ccr5[,c("Longitude", "Latitude", "X.32.Frequency", "Sample.Size")]
+present_ccr5 <- present_ccr5[,c("Longitude", "Latitude", "X...32.Frequency", "Sample.Size")]
 
 present_ccr5["Sample.Size"] <- present_ccr5["Sample.Size"]*2
 colnames(present_ccr5) <- c("longitude", "latitude", "frequency", "chrom_count")
 present_ccr5["frequency"] <- as.numeric(gsub(",", ".", present_ccr5$frequency))
 
-present_ccr5 <- present_ccr5[(present_ccr5["longitude"] <= 80 &
-                                present_ccr5["longitude"] >= -10 &
-                                present_ccr5["latitude"] <= 75 &
-                                present_ccr5["latitude"] >= 30),]
+present_ccr5 <- present_ccr5[(present_ccr5["longitude"] <= lo2 &
+                                present_ccr5["longitude"] >= lo1 &
+                                present_ccr5["latitude"] <= la2 &
+                                present_ccr5["latitude"] >= la1),]
 
-ts_data <- ts_data[(ts_data["longitude"] <= 80 &
-                      ts_data["longitude"] >= -10 &
-                      ts_data["latitude"] <= 75 &
-                      ts_data["latitude"] >= 30),]
-
-#ts_data[, "genotype"] <- apply(ts_data[,c("AA", "AD", "DD")], 1, which.max)-1
+ts_data <- ts_data[(ts_data["longitude"] <= lo2 &
+                      ts_data["longitude"] >= lo1 &
+                      ts_data["latitude"] <= la2 &
+                      ts_data["latitude"] >= la1),]
 
 # Points with potential initial allele
 lonseq <- seq(-5, 100, 10)

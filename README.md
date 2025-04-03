@@ -14,7 +14,7 @@ To reproduce the results start of by creating a conda environment with the corre
 ```
 conda create -n ccr5delta32_analysis \
   -c conda-forge -c bioconda -c defaults \
-  R-base=4.4.2 \
+  R-base=4.3.3 \
   graphicsmagick=1.3.26 \
   libgdal=3.10.0 \
   udunits2=2.2.28 \
@@ -51,6 +51,8 @@ pkgs <- c(
   "rworldmap@1.3.8",
   "FME@1.1.4",
   "dplyr@1.3.6.3"
+  "maps@3.4.2.1"
+  "scales@1.3.0"
 )
 # Install packages
 pak::pkg_install(pkgs)
@@ -67,7 +69,7 @@ cd ccr5delta32_analysis
 The `stepadna.R` script runs the main part of the analysis.
 Make sure to run the scripts from the `ccr5delta32_analysis` directory.
 
-The `-f` flag take in a CSV file of the following format  
+The `-f` flag takes in a CSV file of the following format  
 ```
 "","Sample","genotype","latitude","longitude","age"
 "1","BOT14",0,53.17,"67.67",5263.5
@@ -80,14 +82,15 @@ The `-a` flag determines the estimated age of the allele
 the `-l` flag determines whether to use pseudohaploid genotypes (ph) or genotype likelihoods (gl)
 
 The input files (passed to the program by the `-f` flag) used in our analysis can be found in the `/data` directory  
-To rerun our analysis run the following:
+To rerun our analysis run the following (Note: Due to the heuristic nature of the model, 
+some seed values may lead to non-convergence. If this occurs, try using different seeds to ensure stable results.):
 ```
 # HAPI output files without filter
-Rscript stepadna.R -f data/HAPI_input.csv -a 16128 -o output/out_HAPI.csv -l gl -i 50 -c 50 
+Rscript stepadna.R -f data/HAPI_input.csv -a 16128 -o output/out_HAPI.csv -l gl -i 50 -c 50 --seed 42
 # HAPI output file with permissive filter
-Rscript stepadna.R -f data/permissive_input.csv -a 8540 -o output/out_permissive.csv -l gl -i 50 -c 50
+Rscript stepadna.R -f data/permissive_input.csv -a 8540 -o output/out_permissive.csv -l gl -i 50 -c 50 --seed 5
 # HAPI output file with strict filter
-Rscript stepadna.R -f data/strict_input.csv -a 6748 -o output/out_strict.csv -l gl -i 50 -c 50
+Rscript stepadna.R -f data/strict_input.csv -a 6748 -o output/out_strict.csv -l gl -i 50 -c 50 --seed 42
 ```
 ### Plots
 In order to generate the allele frequency trajectory maps of the results generated in the previous step run the script stepplots.R:

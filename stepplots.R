@@ -1,4 +1,4 @@
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+work_dir <- getwd()
 
 list.of.packages <- c("GEOmap","geomapdata","ReacTran","geosphere","deSolve","magrittr","maptools","ggplot2","cowplot","animation","optparse")
 new.packages <-
@@ -29,7 +29,7 @@ for (dn in c(1,2,3)){
 
 datatype <- c("HAPI", "permissive", "strict")
 
-ccr5_data <- read.csv(paste0("data/",datatype[dn],"_input.csv"))
+ccr5_data <- read.csv(paste0(work_dir, "/data/",datatype[dn],"_input.csv"))
 
 ccr5_data <- ccr5_data[(ccr5_data["longitude"] <= 120 &
                       ccr5_data["longitude"] >= -10 &
@@ -42,7 +42,7 @@ ccr5_data$latitude <- ccr5_data$latitude+rnorm(nrow(ccr5_data),0,0.3)
 ccr5_data <- ccr5_data[(ccr5_data["genotype"] == 1 | ccr5_data["genotype"] == 2),]
 
 ######################################## Producing PDFs ######################################## 
-opt=list(file=paste0("output/out_",datatype[dn],".csv"), nimage=7, out=paste0("figure_",datatype[dn]))
+opt=list(file=paste0("output/out_",datatype[dn],".csv"), nimage=7, out=paste0(work_dir,"/figure_",datatype[dn]))
 
 # Define map boundaries
 la1 <- 30
