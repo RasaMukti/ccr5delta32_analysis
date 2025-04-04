@@ -50,8 +50,8 @@ pkgs <- c(
   "mapplots@1.5.2",
   "rworldmap@1.3.8",
   "FME@1.1.4",
-  "dplyr@1.3.6.3"
-  "maps@3.4.2.1"
+  "dplyr@1.3.6.3",
+  "maps@3.4.2.1",
   "scales@1.3.0"
 )
 # Install packages
