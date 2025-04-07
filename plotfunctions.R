@@ -294,7 +294,7 @@ saveGif <- function(col_num, image_num, outName, diffusion_mat, timeP, Nx, Ny, l
       
       mplot <- ggplot() +
         geom_sf() +
-        coord_sf(xlim = c(-10, 80), ylim = c(30, 71), expand = FALSE)+
+        coord_sf(xlim = c(-10, 120), ylim = c(30, 71), expand = FALSE)+
         geom_raster() +
         theme_classic()+
         scale_fill_manual(values = colorNames)+
@@ -345,15 +345,15 @@ savePDF <- function(col_num, image_num, outName, diffusion_mat, timeP, Nx, Ny, l
   colorBreaks = c(1e-5, 3^(seq(-6, log10(1), length.out = col_num)))
   
   if (datatype == "HAPI"){
-    plotTimes <- c(1, 43, 52, 56, 57)
+    plotTimes <- c(1, 41, 45, 50, 57)
     fun_color_range <- colorRampPalette(c("#ffffb2","#619cff","#033488"))
     point_fill = "#619CFF"
   } else if (datatype == "permissive"){
-    plotTimes <- c(5, 14, 23, 28, 30)
+    plotTimes <- c(1,14,18,23,30)
     fun_color_range <- colorRampPalette(c("#ffffb2","#fa9079","#de4514","#920909"))
     point_fill = "#F8766D"
   } else if (datatype == "strict"){
-    plotTimes <- c(1,10,19,22,24)
+    plotTimes <- c(1,8,12,17,24)
     fun_color_range <- colorRampPalette(c("#ffffb2","#1ed053","#026921"))
     point_fill = "#00BA38"
   }
@@ -391,7 +391,7 @@ savePDF <- function(col_num, image_num, outName, diffusion_mat, timeP, Nx, Ny, l
 
       mplot <- ggplot() +
         geom_sf() +
-        coord_sf(xlim = c(-10, 80), ylim = c(30, 71), expand = FALSE)+
+        coord_sf(xlim = c(-10, 120), ylim = c(30, 71), expand = FALSE)+
         geom_raster() +
         theme_classic()+
         scale_fill_manual(values = colorNames, na.value="white")+

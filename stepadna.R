@@ -67,7 +67,7 @@ ts_data$age <- round(ts_data$age/10)
 # Load present allele frequencies
 present_ccr5 <- read.csv("data/November_S1.csv", sep=";")
 
-present_ccr5 <- present_ccr5[,c("Longitude", "Latitude", "X...32.Frequency", "Sample.Size")]
+present_ccr5 <- present_ccr5[,c("Longitude", "Latitude", "X.32.Frequency", "Sample.Size")]
 
 present_ccr5["Sample.Size"] <- present_ccr5["Sample.Size"]*2
 colnames(present_ccr5) <- c("longitude", "latitude", "frequency", "chrom_count")
