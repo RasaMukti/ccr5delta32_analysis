@@ -44,14 +44,14 @@ pkgs <- c(
   "fields@16.3",
   "optparse@1.7.5",
   "plsgenomics@1.5-3",
-  "paramtest@0.1.1",
+  "paramtest@0.1.0",
   "bbmle@1.0.25.1",
   "mapdata@2.3.1",
   "mapplots@1.5.2",
   "rworldmap@1.3.8",
-  "FME@1.1.4",
-  "dplyr@1.3.6.3"
-  "maps@3.4.2.1"
+  "FME@1.3.6.3",
+  "dplyr@1.1.4",
+  "maps@3.4.2.1",
   "scales@1.3.0"
 )
 # Install packages
